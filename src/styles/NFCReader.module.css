@@ -3,45 +3,152 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0270dd 0%, #3492f0 100%);
 }
 
 .card {
   background-color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 9rem 15rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
   text-align: center;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.5s ease; /* Animation de transition */
 }
 
+.cardPortrait {
+  transform: rotate(90deg); /* Rotation de 90 degrés uniquement sur mobile en mode portrait */
+  width: 100vh; 
+  height: 100vw;
+  top: calc(50% - 50vw); /* Centrage vertical */
+  left: calc(50% - 50vh); /* Centrage horizontal */
+  padding: 4rem 6rem; 
+}
+
+.rectangle {
+  position: absolute;
+  padding: 2.5rem 20.7rem;
+  background-color: black;
+  top: 100px;
+  left: 0;
+}
+
+.rectanglePortrait {
+  transform: rotate(-90deg); /* Rotation de -90 degrés uniquement sur mobile en mode portrait */
+  width: 100vh; 
+  height: 100vw; 
+  top: calc(50% - 50vw); /* Centrage vertical */
+  left: calc(50% - 50vh); /* Centrage horizontal */
+  padding: 2.5rem 20.7rem; 
+}
+
+.lights {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 15rem;
+  left: 42.5rem;
+  width: 5rem; /* Ajustez l'écart entre nos lights */
+  flex-direction: column; /* Empile les lights verticalements */
+  align-items: center;
+}
+
+.redLight, .greenLight {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10%;
+  margin-bottom: 10px; /* Espace entre les lights */
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+}
+
+.redLight {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(100, 0, 0); /* Dark Rouge par défaut */
+}
+
+.greenLight {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(0, 100, 0); /* Dark Vert par défaut */
+}
+
+.GreenlightOn {
+  background-color: rgba(0, 255, 0, 1); /* Light green, une fois allumé */
+}
+
+.RedlightOn {
+  background-color: rgba(255, 0, 0, 1); /* Light red, une fois allumé */
+}
+
+
 .heading {
+  top: -6rem;
+  position: relative;
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #333;
 }
 
 .message {
+  top: 13rem;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  left: 13.5rem;
   color: #555;
+  max-width: 80%; /* Limite la largeur du message à X% de son conteneur parent */
+  margin: 0 -2rem; 
+  text-align: center;
 }
 
 .button {
-  background-color: #667eea;
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007FFF;
   color: #fff;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
+}
+
+.bypassButton {
+  padding: 0.1rem;
+  bottom: 1rem;
+  left: 50%;
+  background-color: rgb(201, 0, 0);
+}
+
+.bypassButton:hover {
+  transition: 1s ease;
+  background-color: red;
+}
+
+.bypassButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.5);
 }
 
 .button:hover {
-  background-color: #5a67d8;
+  background-color: #3098ff;
 }
 
 .button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.5);
+}
+
+/* Styles pour le fond sur mobile */
+@media (max-width: 768px) {
+  .container {
+    background: linear-gradient(135deg, #0270dd 0%, #3492f0 100%);
+  }
 }
